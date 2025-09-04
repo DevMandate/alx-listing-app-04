@@ -1,4 +1,5 @@
 import { PropertyProps } from "@/interfaces";
+import ReviewSection from "@/components/property/ReviewSection";
 
 export default function PropertyDetail({ property }: { property: PropertyProps }) {
   return (
@@ -25,7 +26,9 @@ export default function PropertyDetail({ property }: { property: PropertyProps }
         )}
 
         {property.price !== undefined && (
-          <p className="mt-2 text-blue-600 font-bold">${property.price}/night</p>
+          <p className="mt-2 text-blue-600 font-bold">
+            ${property.price}/night
+          </p>
         )}
       </div>
 
@@ -50,6 +53,11 @@ export default function PropertyDetail({ property }: { property: PropertyProps }
           Special Offer: {property.discount}
         </div>
       )}
+
+      {/* Reviews */}
+      <div className="mt-10">
+        <ReviewSection propertyId={property.id !== undefined ? String(property.id) : ""} />
+      </div>
     </div>
   );
 }
